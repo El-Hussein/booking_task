@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import AppText from '../../Components/AppText';
+import AppText from '../../components/AppText';
 import styles from './styles';
 
 const EmptyScreen = () => {

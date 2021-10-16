@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {booking} from './Booking';
+import {booking} from './booking';
 
 const reducers = () =>
   combineReducers({

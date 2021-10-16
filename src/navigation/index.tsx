@@ -6,7 +6,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {IS_OFFLINE} from '../constants/keys';
 import {setKey} from '../utils/async-storage.helpers';
-import NetStatus from '../Components/NetStatus';
+import NetStatus from '../components/NetStatus';
 import {colors} from '../constants/colors';
 import AppTabs from './tabs';
 

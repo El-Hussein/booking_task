@@ -15,10 +15,6 @@ export interface LocationListingState {
   loading: boolean;
 }
 
-export interface FetchLocationListingRequestSuccessResponse {
-  data: Location[];
-}
-
 export interface FetchLocationListingAction {
   payload: {[key: string]: unknown};
   type: string;
@@ -27,7 +23,7 @@ export interface FetchLocationListingAction {
 export interface SuccessFetchLocationListingAction {
   type: string;
   payload: {
-    response: FetchLocationListingRequestSuccessResponse;
+    response: Location[];
   };
 }
 
@@ -36,7 +32,7 @@ export type FetchLocationListing = () => FetchLocationListingAction;
 export type PendFetchLocationListing = () => FetchLocationListingAction;
 
 export type SuccessFetchLocationListing = (
-  data: FetchLocationListingRequestSuccessResponse,
+  data: Location[],
 ) => SuccessFetchLocationListingAction;
 
 export type FailFetchLocationListing = () => FetchLocationListingAction;

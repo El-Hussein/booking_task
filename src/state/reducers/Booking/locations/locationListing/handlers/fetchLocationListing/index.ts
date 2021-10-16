@@ -1,7 +1,4 @@
-import {
-  FetchLocationListingRequestSuccessResponse,
-  LocationListingState,
-} from '../../../../../../../types';
+import {Location, LocationListingState} from '../../../../../../../types';
 import {FETCH_LOCATION_LISTING} from '../../../../../../actions/booking/ACTION_TYPES';
 
 const fetchLocationListingHandler = {
@@ -13,9 +10,7 @@ const fetchLocationListingHandler = {
   },
   [FETCH_LOCATION_LISTING.SUCCESS]: (
     draftState: LocationListingState,
-    {
-      response: {data: locations},
-    }: {response: FetchLocationListingRequestSuccessResponse},
+    {response: locations}: {response: Location[]},
   ) => {
     draftState.locations = locations;
   },
