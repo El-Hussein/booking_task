@@ -9,14 +9,13 @@ export interface Location {
   currency: string;
   symbol: LocationSymbol.DOLLAR;
 }
-
+export interface LocationParams {
+  locationId: number;
+}
 export interface LocationListingState {
   locations: Location[];
   loading: boolean;
-}
-
-export interface FetchLocationListingRequestSuccessResponse {
-  data: Location[];
+  params: LocationParams;
 }
 
 export interface FetchLocationListingAction {
@@ -27,7 +26,7 @@ export interface FetchLocationListingAction {
 export interface SuccessFetchLocationListingAction {
   type: string;
   payload: {
-    response: FetchLocationListingRequestSuccessResponse;
+    response: Location[];
   };
 }
 
@@ -36,7 +35,14 @@ export type FetchLocationListing = () => FetchLocationListingAction;
 export type PendFetchLocationListing = () => FetchLocationListingAction;
 
 export type SuccessFetchLocationListing = (
-  data: FetchLocationListingRequestSuccessResponse,
+  data: Location[],
 ) => SuccessFetchLocationListingAction;
 
 export type FailFetchLocationListing = () => FetchLocationListingAction;
+
+export interface SelectLocationIdAction {
+  payload: {locationId: number};
+  type: string;
+}
+
+export type SelectLocationId = (locationId: number) => SelectLocationIdAction;

@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import MaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
-import EmptyScreen from '../../Screens/EmptyScreen';
+import EmptyScreen from '../../Screens/BookingRooms/EmptyScreen';
 import BookingStack from './bookingStack';
 import {colors} from '../../constants/colors';
 

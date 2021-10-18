@@ -1,13 +1,4 @@
 import axios from 'axios';
-import {sendAlert} from '../state/actions/alertManager';
-import store from '../state/store';
-import {AlertType} from '../state/types/alertManager';
-import {
-  decrementAppRequestQueue,
-  incrementAppRequestQueue,
-} from '../state/actions/appRequestQueue';
-import Storage from './Storage';
-import {logoutAdmin} from '../state/actions/auth/logout';
 
 export default new (class HttpClient {
   constructor() {
@@ -19,34 +10,18 @@ export default new (class HttpClient {
   }
 
   setupResponseInterceptors() {
-    axios.interceptors.request.use(req => {
-      store.dispatch(incrementAppRequestQueue());
-      return req;
-    });
-    axios.interceptors.response.use(
-      res => {
-        store.dispatch(decrementAppRequestQueue());
-        return res;
-      },
-      err => {
-        if (err.response?.status === 401) {
-          store.dispatch(logoutAdmin());
-        }
-        const responseError = err.response.data.error;
-        if (responseError.message) {
-          store.dispatch(sendAlert(AlertType.ERROR, responseError.message));
-        }
-        store.dispatch(decrementAppRequestQueue());
-        return Promise.reject(err.response.data);
-      },
-    );
+    // axios.interceptors.response.use(
+    //   response => {},
+    //   err => {},
+    // );
   }
 
   getDefaultConfig() {
     return {
       headers: {
         Lang: 'en',
-        Authorization: `Bearer ${Storage.retrieveAdminAuthToken()}`,
+        // we can add authorization here
+        // Authorization: `Bearer ${user_token}`,
       },
     };
   }

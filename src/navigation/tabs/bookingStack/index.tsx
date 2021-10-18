@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import ConferenceRooms from '../../../Screens/ConferenceRooms';
-import ConferenceRoomDetails from '../../../Screens/ConferenceRoomDetails';
+import ConferenceRooms from '../../../Screens/BookingRooms/ConferenceRooms';
+import ConferenceRoomDetails from '../../../Screens/BookingRooms/ConferenceRoomDetails';
 
 const Stack = createStackNavigator();
 
@@ -13,8 +13,11 @@ const BookingStack = ({routeName}) => {
         headerShown: false,
         header: null,
       })}>
-      <Stack.Screen name="SelectLocation" component={ConferenceRooms} />
-      <Stack.Screen name="AppTabs" component={ConferenceRoomDetails} />
+      <Stack.Screen name="ConferenceRooms" component={ConferenceRooms} />
+      <Stack.Screen
+        name="ConferenceRoomDetails"
+        component={ConferenceRoomDetails}
+      />
     </Stack.Navigator>
   );
 };
