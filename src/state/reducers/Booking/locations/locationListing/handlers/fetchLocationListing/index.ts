@@ -12,6 +12,7 @@ const fetchLocationListingHandler = {
     draftState: LocationListingState,
     {response: locations}: {response: Location[]},
   ) => {
+    draftState.loading = false;
     draftState.locations = locations;
   },
 };
