@@ -30,7 +30,6 @@ const DropDownModal: React.FC<DropDownModalProps> = ({
   const [isVisible, setIsVisible] = useState(false);
 
   const openModal = () => {
-    console.log('hello');
     setIsVisible(true);
   };
   const closeModal = () => setIsVisible(false);
